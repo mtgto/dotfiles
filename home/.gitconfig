@@ -1,0 +1,10 @@
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+
+[include]
+	path = ~/.gitconfig.local
+[core]
+	excludesfile = ~/.gitignore
