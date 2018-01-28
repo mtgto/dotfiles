@@ -29,10 +29,11 @@ fi
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-
-zplug "zsh-users/zsh-syntax-highlighting", from:github
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "b4b4r07/enhancd", use:enhancd.sh
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
+zplug "zsh-users/zsh-completions"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
