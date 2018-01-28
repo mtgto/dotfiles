@@ -1,3 +1,5 @@
+# http://www.scala-sbt.org/1.x/docs/Launcher-Configuration.html
+# https://storage-download.googleapis.com/maven-central/index.html
 [repositories]
   local
   google-maven-central: https://maven-central-asia.storage-download.googleapis.com/repos/central/data/
