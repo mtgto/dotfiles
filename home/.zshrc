@@ -52,9 +52,16 @@ source $HOMESHICK_DIR/homeshick.sh
 alias g=git
 alias ga="git add"
 alias gb="git branch"
+alias gc="git commit"
 alias gco="git checkout"
 alias gd="git diff"
 alias gl="git pull"
+alias glg="git log"
 alias gst="git status"
 alias gp="git push"
 alias gr="git remote"
+if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
+	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
+
