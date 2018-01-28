@@ -1,0 +1,6 @@
+[repositories]
+  local
+  google-maven-central: https://maven-central-asia.storage-download.googleapis.com/repos/central/data/
+  typesafe-ivy-releases: http://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly
+  maven-central
+  sonatype-snapshots: https://oss.sonatype.org/content/repositories/snapshots

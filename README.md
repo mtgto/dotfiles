@@ -17,6 +17,12 @@ homeshick clone mtgto/dotfiles
 ```
 
 # Installation
+## Peco
+For enhancd (zshrc).
+```console
+brew install peco
+```
+
 ## Powerline
 ```sh
 pip3 install psutil
