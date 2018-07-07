@@ -10,6 +10,9 @@ setopt hist_ignore_dups
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
+# C-sなどが機能するようにフロー制御を無効化
+setopt noflowcontrol
+bindkey -e
 
 # 第三者の書き込み制限を外す
 umask 002
@@ -34,6 +37,9 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
 zplug "zsh-users/zsh-completions"
+# emoji-cli デフォルトの^Sは重複するため外す
+export EMOJI_CLI_KEYBIND="^y"
+zplug "b4b4r07/emoji-cli", if:"which jq"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
