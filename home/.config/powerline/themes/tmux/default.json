@@ -10,12 +10,18 @@
                 "priority": 50
             },
             {
+                "function": "powerline.segments.common.time.date"
+            },
+            {
                 "function": "powerline.segments.common.time.date",
                 "name": "time",
                 "args": {
-                    "format": "%-m月%-d日(%a) %H:%M",
+                    "format": "%H:%M",
                     "istime": true
                 }
+            },
+            {
+                "function": "powerline.segments.common.net.hostname"
             }
         ],
         "left": [
