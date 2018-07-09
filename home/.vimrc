@@ -22,6 +22,7 @@ if dein#load_state('~/.vim/bundles')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('tomasr/molokai')
   call dein#add('Shougo/unite.vim')
+  call dein#add('leafgarland/typescript-vim')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
