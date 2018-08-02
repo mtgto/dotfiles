@@ -55,6 +55,9 @@ zplug load
 export HOMESHICK_DIR=/usr/local/opt/homeshick
 source $HOMESHICK_DIR/homeshick.sh
 
+# Path
+export PATH=/usr/local/bin:$PATH
+
 # エイリアス設定
 alias g=git
 alias ga="git add"
@@ -70,5 +73,6 @@ alias gr="git remote"
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+	export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
