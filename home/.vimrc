@@ -1,47 +1,40 @@
 set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/Python
 set rubydll=/usr/local/lib/libruby.dylib
 
-"dein Scripts-----------------------------
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
-if dein#load_state('~/.vim/bundles')
-  call dein#begin('~/.vim/bundles')
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('tomasr/molokai')
-  call dein#add('Shougo/unite.vim')
-  call dein#add('leafgarland/typescript-vim')
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+" NeoBundle 'Shougo/neosnippet.vim'
+" NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'leafgarland/typescript-vim'
 
-  " You can specify revision/branch/tag.
-  " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+call neobundle#end()
 
 " Required:
 filetype plugin indent on
-syntax enable
 
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 " ここからユーザーの設定
 
