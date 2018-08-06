@@ -1,5 +1,7 @@
-set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/Python
-set rubydll=/usr/local/lib/libruby.dylib
+if v:version >= 800
+  set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/Python
+  set rubydll=/usr/local/lib/libruby.dylib
+endif
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -46,6 +48,7 @@ set number
 set encoding=utf-8
 " 起動時のメッセージ非表示
 set shortmess+=I
+syntax on
 set nobackup
 set noswapfile
 set noundofile
