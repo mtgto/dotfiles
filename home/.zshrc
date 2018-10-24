@@ -51,6 +51,10 @@ fi
 #zplug load --verbose
 zplug load
 
+# Env
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=$LANG
+
 # Homeshick
 export HOMESHICK_DIR=/usr/local/opt/homeshick
 source $HOMESHICK_DIR/homeshick.sh
