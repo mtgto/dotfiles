@@ -54,13 +54,15 @@ zplug load
 # Env
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
+export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:$PATH
 
 # Homeshick
 export HOMESHICK_DIR=/usr/local/opt/homeshick
 source $HOMESHICK_DIR/homeshick.sh
 
-# Path
-export PATH=/usr/local/bin:$PATH
+# Go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # エイリアス設定
 alias g=git
@@ -74,6 +76,7 @@ alias glg="git log"
 alias gst="git status"
 alias gp="git push"
 alias gr="git remote"
+alias m="make"
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
