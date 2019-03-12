@@ -4,3 +4,6 @@
 [submodule "home/.vim/bundle/neobundle.vim"]
 	path = home/.vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
+[submodule "home/.zplugin/bin"]
+	path = home/.zplugin/bin
+	url = https://github.com/zdharma/zplugin.git

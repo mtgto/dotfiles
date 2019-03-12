@@ -20,33 +20,6 @@ umask 002
 # 重複パスを登録しない
 typeset -U path
 
-# See https://carlosbecker.com/posts/speeding-up-zsh/
-autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
-
-# ZPlug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
-zplug "zsh-users/zsh-completions"
-
-#if ! zplug check --verbose; then
-#    printf "Install? [y/N]: "
-#    if read -q; then
-#        echo; zplug install
-#    fi
-#fi
-
-#zplug load --verbose
-zplug load
-
 # Env
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
@@ -57,9 +30,17 @@ export PATH=/usr/local/opt/gettext/bin:$PATH
 export HOMESHICK_DIR=/usr/local/opt/homeshick
 source $HOMESHICK_DIR/homeshick.sh
 
-# Jenv
-export PATH=export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# Jenv 遅いので遅延ロード
+# https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
+export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
+if type jenv > /dev/null; then
+    export PATH="${JENV_ROOT}/bin:${JENV_ROOT}/shims:${PATH}"
+    function jenv() {
+        unset -f jenv
+        eval "$(command jenv init -)"
+        jenv $@
+    }
+fi
 
 # Golang
 export GOPATH=$HOME/go
@@ -86,6 +67,17 @@ if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 	export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
+
+# ZPlugin
+source "${HOME}/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+
+zplugin light "mafredri/zsh-async"
+zplugin light "sindresorhus/pure"
+zplugin light "zsh-users/zsh-syntax-highlighting"
+zplugin light "zsh-users/zsh-completions"
+
+zplugin ice wait"!0" atinit"zpcompinit; zpcdreplay"
 
 # プロファイル
 #if (which zprof > /dev/null 2>&1) ;then
