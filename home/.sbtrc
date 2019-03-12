@@ -1,1 +1,2 @@
 alias t=testQuick
+alias fmt=;scalafmt;test:scalafmt
