@@ -51,16 +51,22 @@ zplug load
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
 export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/opt/gettext/bin:$PATH
 
 # Homeshick
 export HOMESHICK_DIR=/usr/local/opt/homeshick
 source $HOMESHICK_DIR/homeshick.sh
 
-# Go
+# Jenv
+export PATH=export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# Golang
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
 # エイリアス設定
+alias reload='exec zsh -l'
 alias g=git
 alias ga="git add"
 alias gb="git branch"
@@ -73,6 +79,8 @@ alias gst="git status"
 alias gp="git push"
 alias gr="git remote"
 alias m="make"
+alias k="kubectl"
+
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
