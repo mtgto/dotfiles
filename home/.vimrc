@@ -1,5 +1,5 @@
 if v:version >= 800
-  set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/Python
+  set pythonthreedll=/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.7/Python
   set rubydll=/usr/local/lib/libruby.dylib
 endif
 
