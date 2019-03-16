@@ -46,6 +46,11 @@ fi
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
+# Homebrew completions
+if [ -d /usr/local/share/zsh/site-functions ]; then
+	fpath=(/usr/local/share/zsh/site-functions $fpath)
+fi
+
 # エイリアス設定
 alias reload='exec zsh -l'
 alias g=git
@@ -72,12 +77,13 @@ fi
 source "${HOME}/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 
-zplugin light "mafredri/zsh-async"
-zplugin light "sindresorhus/pure"
-zplugin light "zsh-users/zsh-syntax-highlighting"
-zplugin light "zsh-users/zsh-completions"
-
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
+zplugin ice as'completion'
+zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+zplugin light zsh-users/zsh-completions
 zplugin ice wait"!0" atinit"zpcompinit; zpcdreplay"
+zplugin light zsh-users/zsh-syntax-highlighting
 
 # プロファイル
 #if (which zprof > /dev/null 2>&1) ;then
