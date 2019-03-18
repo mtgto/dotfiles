@@ -28,18 +28,24 @@ export PATH=/usr/local/opt/gettext/bin:$PATH
 
 # Homeshick
 export HOMESHICK_DIR=/usr/local/opt/homeshick
-source $HOMESHICK_DIR/homeshick.sh
+if type homeshick > /dev/null; then
+  function homeshick() {
+    unset -f homeshick
+    source "${HOMESHICK_DIR}/homeshick.sh"
+    homeshick $@
+  }
+fi
 
 # Jenv 遅いので遅延ロード
 # https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
 export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
 if type jenv > /dev/null; then
-    export PATH="${JENV_ROOT}/bin:${JENV_ROOT}/shims:${PATH}"
-    function jenv() {
-        unset -f jenv
-        eval "$(command jenv init -)"
-        jenv $@
-    }
+  export PATH="${JENV_ROOT}/bin:${JENV_ROOT}/shims:${PATH}"
+  function jenv() {
+    unset -f jenv
+    eval "$(command jenv init -)"
+    jenv $@
+  }
 fi
 
 # Golang
@@ -49,6 +55,11 @@ export PATH=$GOPATH/bin:$PATH
 # Homebrew completions
 if [ -d /usr/local/share/zsh/site-functions ]; then
 	fpath=(/usr/local/share/zsh/site-functions $fpath)
+fi
+
+# Ruby
+if [ -d "/usr/local/opt/ruby/bin" ]; then
+	export PATH=/usr/local/opt/ruby/bin:$PATH
 fi
 
 # エイリアス設定
