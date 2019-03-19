@@ -84,6 +84,11 @@ if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
+#if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
+#    export GRAALVM_HOME="${HOME}/graalvm-ce-1.0.0-rc13/Contents/Home"
+#    export PATH=${GRAALVM_HOME}/bin:$PATH
+#fi
+
 # ZPlugin
 source "${HOME}/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
@@ -93,8 +98,11 @@ zplugin light sindresorhus/pure
 zplugin ice as'completion'
 zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zplugin light zsh-users/zsh-completions
+zplugin light superbrothers/zsh-kubectl-prompt
 zplugin ice wait"!0" atinit"zpcompinit; zpcdreplay"
 zplugin light zsh-users/zsh-syntax-highlighting
+autoload -U colors; colors
+RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 # プロファイル
 #if (which zprof > /dev/null 2>&1) ;then
