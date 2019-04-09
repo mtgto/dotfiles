@@ -98,11 +98,8 @@ zplugin light sindresorhus/pure
 zplugin ice as'completion'
 zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zplugin light zsh-users/zsh-completions
-zplugin light superbrothers/zsh-kubectl-prompt
 zplugin ice wait"!0" atinit"zpcompinit; zpcdreplay"
 zplugin light zsh-users/zsh-syntax-highlighting
-autoload -U colors; colors
-RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 # プロファイル
 #if (which zprof > /dev/null 2>&1) ;then

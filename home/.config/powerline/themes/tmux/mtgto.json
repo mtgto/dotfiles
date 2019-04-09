@@ -10,6 +10,10 @@
     "segments": {
         "right": [
             {
+                "function": "kube.kubernetes",
+                "priority": 40
+            },
+            {
                 "function": "powerline.segments.common.sys.uptime",
                 "priority": 50
             },
