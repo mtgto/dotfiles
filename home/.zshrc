@@ -23,7 +23,6 @@ typeset -U path
 # Env
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
-export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/gettext/bin:$PATH
 
 # Homeshick
@@ -57,9 +56,14 @@ if [ -d /usr/local/share/zsh/site-functions ]; then
 	fpath=(/usr/local/share/zsh/site-functions $fpath)
 fi
 
+if [ -d "/usr/local/opt/gettext/bin" ]; then
+	export PATH=/usr/local/opt/gettext/bin:$PATH
+fi
+
 # Ruby
 if [ -d "/usr/local/opt/ruby/bin" ]; then
 	export PATH=/usr/local/opt/ruby/bin:$PATH
+	export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
 # エイリアス設定
