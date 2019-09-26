@@ -26,7 +26,7 @@ export LC_CTYPE=$LANG
 export PATH=/usr/local/opt/gettext/bin:$PATH
 
 # Homeshick
-export HOMESHICK_DIR=/usr/local/opt/homeshick
+export HOMESHICK_DIR=$(brew --prefix)/opt/homeshick
 if type homeshick > /dev/null; then
   function homeshick() {
     unset -f homeshick
@@ -51,6 +51,12 @@ fi
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
+# Rbenv
+if [ -e "$HOME/.rbenv" ]; then
+	export PATH="$HOME/.rbenv/shims:$PATH"
+        eval "$(rbenv init - zsh)"
+fi
+
 # Homebrew completions
 if [ -d /usr/local/share/zsh/site-functions ]; then
 	fpath=(/usr/local/share/zsh/site-functions $fpath)
@@ -65,6 +71,9 @@ if [ -d "/usr/local/opt/ruby/bin" ]; then
 	export PATH=/usr/local/opt/ruby/bin:$PATH
 	export PATH=`gem environment gemdir`/bin:$PATH
 fi
+
+# less
+export LESS="-iMR"
 
 # エイリアス設定
 alias reload='exec zsh -l'
