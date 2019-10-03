@@ -8,3 +8,4 @@
 	path = ~/.gitconfig.local
 [core]
 	excludesfile = ~/.gitignore_global
+	pager = less -iMRFX
