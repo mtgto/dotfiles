@@ -9,3 +9,5 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = less -iMRFX
+[init]
+	templatedir = ~/.config/git/templates
