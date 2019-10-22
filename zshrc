@@ -97,6 +97,10 @@ if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
+if [ -d "${HOME}/work/chromium/depot_tools" ]; then
+  export PATH="${HOME}/work/chromium/depot_tools":$PATH
+fi
+
 #if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
 #    export GRAALVM_HOME="${HOME}/graalvm-ce-1.0.0-rc13/Contents/Home"
 #    export PATH=${GRAALVM_HOME}/bin:$PATH

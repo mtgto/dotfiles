@@ -4,12 +4,13 @@ mtgto's dotfiles.
 
 # Requirements
 
-## Homeshick
+## rcm
 
-First, you install [homeshick](https://github.com/andsens/homeshick) if you didn't.
+First, you install [rcm](https://github.com/thoughtbot/rcm) if you didn't.
 
 ```bash
-brew install homeshick
+brew tap thoughtbot/formulae
+brew install rcm
 ```
 
 Ahd then, clone this castle.
