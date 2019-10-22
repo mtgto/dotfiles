@@ -8,15 +8,21 @@ mtgto's dotfiles.
 
 First, you install [rcm](https://github.com/thoughtbot/rcm) if you didn't.
 
-```bash
+```console
 brew tap thoughtbot/formulae
 brew install rcm
 ```
 
-Ahd then, clone this castle.
+Next, clone this repository.
 
+```console
+git clone --recursive git@github.com:mtgto/dotfiles.git $HOME/.dotfiles
 ```
-homeshick clone mtgto/dotfiles
+
+Finally, setup with rcm
+
+```console
+RCRC=$HOME/.dotfiles rcup
 ```
 
 # Installation
