@@ -7,7 +7,7 @@
 [include]
 	path = ~/.gitconfig.local
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore.global
 	pager = less -iMRFX
 [init]
 	templatedir = ~/.config/git/templates
