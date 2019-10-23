@@ -20,20 +20,12 @@ umask 002
 # 重複パスを登録しない
 typeset -U path
 
+HOMEBREW_PREFIX=$(brew --prefix)
+
 # Env
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
-export PATH=/usr/local/opt/gettext/bin:$PATH
-
-# Homeshick
-export HOMESHICK_DIR=$(brew --prefix)/opt/homeshick
-if type homeshick > /dev/null; then
-  function homeshick() {
-    unset -f homeshick
-    source "${HOMESHICK_DIR}/homeshick.sh"
-    homeshick $@
-  }
-fi
+export PATH=${HOMEBREW_PREFIX}/opt/gettext/bin:$PATH
 
 # Jenv 遅いので遅延ロード
 # https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
@@ -58,17 +50,17 @@ if [ -e "$HOME/.rbenv" ]; then
 fi
 
 # Homebrew completions
-if [ -d /usr/local/share/zsh/site-functions ]; then
-	fpath=(/usr/local/share/zsh/site-functions $fpath)
+if [ -d ${HOMEBREW_PREFIX}/share/zsh/site-functions ]; then
+	fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
 fi
 
-if [ -d "/usr/local/opt/gettext/bin" ]; then
-	export PATH=/usr/local/opt/gettext/bin:$PATH
+if [ -d "${HOMEBREW_PREFIX}/opt/gettext/bin" ]; then
+	export PATH=${HOMEBREW_PREFIX}/opt/gettext/bin:$PATH
 fi
 
 # Ruby
-if [ -d "/usr/local/opt/ruby/bin" ]; then
-	export PATH=/usr/local/opt/ruby/bin:$PATH
+if [ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]; then
+	export PATH=${HOMEBREW_PREFIX}/opt/ruby/bin:$PATH
 	export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
@@ -90,6 +82,8 @@ alias gp="git push"
 alias gr="git remote"
 alias m="make"
 alias k="kubectl"
+alias bi="bundle install"
+alias be="bundle exec"
 
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -101,22 +95,27 @@ if [ -d "${HOME}/work/chromium/depot_tools" ]; then
   export PATH="${HOME}/work/chromium/depot_tools":$PATH
 fi
 
-#if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
-#    export GRAALVM_HOME="${HOME}/graalvm-ce-1.0.0-rc13/Contents/Home"
+if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
+    export GRAALVM_HOME="${HOME}/graalvm-ce-1.0.0-rc13/Contents/Home"
 #    export PATH=${GRAALVM_HOME}/bin:$PATH
-#fi
+fi
 
 # ZPlugin
 source "${HOME}/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
+
 zplugin ice as'completion'
 zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+zplugin ice wait"!0" lucid blockf atpull'zplugin creinstall -q .'
 zplugin light zsh-users/zsh-completions
-zplugin ice wait"!0" atinit"zpcompinit; zpcdreplay"
-zplugin light zsh-users/zsh-syntax-highlighting
+
+zplugin ice wait"!1" lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
+zplugin light zdharma/fast-syntax-highlighting
 
 # プロファイル
 #if (which zprof > /dev/null 2>&1) ;then
