@@ -1,5 +1,5 @@
 dotfiles
-
+====
 mtgto's dotfiles.
 
 # Requirements
@@ -22,7 +22,7 @@ git clone --recursive git@github.com:mtgto/dotfiles.git $HOME/.dotfiles
 Finally, setup with rcm
 
 ```console
-RCRC=$HOME/.dotfiles rcup
+RCRC=$HOME/.dotfiles/rcrc rcup
 ```
 
 # Installation
@@ -81,3 +81,7 @@ ex:
 	name = mtgto
 	email = hogerappa@gmail.com
 ```
+
+# License
+
+MIT
