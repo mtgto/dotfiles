@@ -25,7 +25,6 @@ HOMEBREW_PREFIX=$(brew --prefix)
 # Env
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
-export PATH=${HOMEBREW_PREFIX}/opt/gettext/bin:$PATH
 
 # Jenv 遅いので遅延ロード
 # https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
@@ -46,7 +45,7 @@ export PATH=$GOPATH/bin:$PATH
 # Rbenv
 if [ -e "$HOME/.rbenv" ]; then
 	export PATH="$HOME/.rbenv/shims:$PATH"
-        eval "$(rbenv init - zsh)"
+  eval "$(rbenv init - zsh)"
 fi
 
 # Homebrew completions
