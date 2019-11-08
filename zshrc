@@ -18,7 +18,7 @@ bindkey -e
 umask 002
 
 # 重複パスを登録しない
-typeset -U path
+typeset -gU PATH
 
 HOMEBREW_PREFIX=$(brew --prefix)
 
@@ -41,6 +41,11 @@ fi
 # Golang
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+# Rubygems
+if hash ruby && hash gem; then
+  export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"
+fi
 
 # Rbenv
 if [ -e "$HOME/.rbenv" ]; then
