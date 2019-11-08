@@ -20,7 +20,9 @@ umask 002
 # 重複パスを登録しない
 typeset -gU PATH
 
-HOMEBREW_PREFIX=$(brew --prefix)
+if type brew >/dev/null; then
+  export HOMEBREW_PREFIX=$(brew --prefix)
+fi
 
 # Env
 export LANG=ja_JP.UTF-8
@@ -29,7 +31,7 @@ export LC_CTYPE=$LANG
 # Jenv 遅いので遅延ロード
 # https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
 export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
-if type jenv > /dev/null; then
+if type jenv >/dev/null; then
   export PATH="${JENV_ROOT}/bin:${JENV_ROOT}/shims:${PATH}"
   function jenv() {
     unset -f jenv
@@ -41,17 +43,6 @@ fi
 # Golang
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
-
-# Rubygems
-if hash ruby && hash gem; then
-  export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"
-fi
-
-# Rbenv
-if [ -e "$HOME/.rbenv" ]; then
-	export PATH="$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init - zsh)"
-fi
 
 # Homebrew completions
 if [ -d ${HOMEBREW_PREFIX}/share/zsh/site-functions ]; then
@@ -66,6 +57,17 @@ fi
 if [ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]; then
 	export PATH=${HOMEBREW_PREFIX}/opt/ruby/bin:$PATH
 	export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
+# Rubygems
+if type ruby >/dev/null && type gem >/dev/null; then
+  export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"
+fi
+
+# Rbenv
+if [ -e "$HOME/.rbenv" ]; then
+	export PATH="$HOME/.rbenv/shims:$PATH"
+  eval "$(rbenv init - zsh)"
 fi
 
 # less
@@ -122,6 +124,6 @@ zplugin ice wait"!1" lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdrepla
 zplugin light zdharma/fast-syntax-highlighting
 
 # プロファイル
-#if (which zprof > /dev/null 2>&1) ;then
-#  zprof
-#fi
+# if (which zprof > /dev/null 2>&1) ;then
+#  zprof | less
+# fi
