@@ -117,6 +117,8 @@ zplugin light sindresorhus/pure
 zplugin ice as'completion'
 zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
+zplugin light zsh-users/zsh-autosuggestions
+
 zplugin ice wait"!0" lucid blockf atpull'zplugin creinstall -q .'
 zplugin light zsh-users/zsh-completions
 
