@@ -70,6 +70,11 @@ if [ -e "$HOME/.rbenv" ]; then
   eval "$(rbenv init - zsh)"
 fi
 
+# Bundler
+if [ -z $BUNDLE_JOBS ]; then
+  export BUNDLE_JOBS=4
+fi
+
 # less
 export LESS="-iMR"
 
