@@ -78,7 +78,7 @@ fi
 # goenv
 if type goenv >/dev/null; then
   export PATH="$GOENV_ROOT/bin:$PATH"
-  eval "$(goenv init -)" >/dev/null
+  eval "$(goenv init -)"
 fi
 
 # less
