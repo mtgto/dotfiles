@@ -75,6 +75,12 @@ if [ -z $BUNDLE_JOBS ]; then
   export BUNDLE_JOBS=4
 fi
 
+# goenv
+if type goenv >/dev/null; then
+  export PATH="$GOENV_ROOT/bin:$PATH"
+  eval "$(goenv init -)" >/dev/null
+fi
+
 # less
 export LESS="-iMR"
 
