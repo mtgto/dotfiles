@@ -117,24 +117,24 @@ if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
 #    export PATH=${GRAALVM_HOME}/bin:$PATH
 fi
 
-# ZPlugin
-source "${HOME}/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+# zinit
+source "${HOME}/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
 
-zplugin ice as'completion'
-zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+zinit ice as'completion'
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
-zplugin light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-autosuggestions
 
-zplugin ice wait"!0" lucid blockf atpull'zplugin creinstall -q .'
-zplugin light zsh-users/zsh-completions
+zinit ice wait"!0" lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
 
-zplugin ice wait"!1" lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
-zplugin light zdharma/fast-syntax-highlighting
+zinit ice wait"!1" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
+zinit light zdharma/fast-syntax-highlighting
 
 # プロファイル
 # if (which zprof > /dev/null 2>&1) ;then
