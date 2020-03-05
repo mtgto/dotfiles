@@ -15,7 +15,7 @@ setopt noflowcontrol
 bindkey -e
 
 # 第三者の書き込み制限を外す
-umask 002
+umask 022
 
 # 重複パスを登録しない
 typeset -gU PATH
