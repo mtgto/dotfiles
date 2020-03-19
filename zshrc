@@ -22,11 +22,15 @@ typeset -gU PATH
 
 if type brew >/dev/null; then
   export HOMEBREW_PREFIX=$(brew --prefix)
+  export HOMEBREW_CACHE="${HOMEBREW_PREFIX}/cache"
+  # https://docs.brew.sh/Analytics
+  export HOMEBREW_NO_ANALYTICS=1
 fi
 
 # Env
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Jenv 遅いので遅延ロード
 # https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
