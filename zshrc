@@ -22,7 +22,6 @@ typeset -gU PATH
 
 if type brew >/dev/null; then
   export HOMEBREW_PREFIX=$(brew --prefix)
-  export HOMEBREW_CACHE="${HOMEBREW_PREFIX}/cache"
   # https://docs.brew.sh/Analytics
   export HOMEBREW_NO_ANALYTICS=1
 fi
