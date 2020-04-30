@@ -80,6 +80,9 @@ fi
 
 # goenv
 if type goenv >/dev/null; then
+  if [ -z "$GOENV_ROOT" ]; then
+    export GOENV_ROOT="$HOME/.goenv"
+  fi
   export PATH="$GOENV_ROOT/bin:$PATH"
   eval "$(goenv init -)"
 fi
@@ -125,7 +128,7 @@ source "${HOME}/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit ice pick"async.zsh" src"pure.zsh"
+zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
 zinit ice as'completion'
