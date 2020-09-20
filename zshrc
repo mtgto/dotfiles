@@ -31,6 +31,10 @@ export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+if [ -d $HOME/bin ]; then
+  export PATH=$HOME/bin:$PATH
+fi
+
 # Jenv 遅いので遅延ロード
 # https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
 export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
