@@ -11,3 +11,4 @@
 	pager = less -iMRFX
 [init]
 	templatedir = ~/.config/git/templates
+	defaultBranch = main
