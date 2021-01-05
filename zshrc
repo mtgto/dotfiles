@@ -101,6 +101,15 @@ if [ -f "/usr/local/opt/nvm/nvm.sh" ]; then
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
+# next.js
+# https://nextjs.org/telemetry#how-do-i-opt-out
+export NEXT_TELEMETRY_DISABLED=1
+
+# git
+checkout-pull-request () {
+  git fetch upstream pull/${1}/head:pr/${1} && git checkout pr/${1}
+}
+
 # エイリアス設定
 alias reload='exec zsh -l'
 alias g=git
@@ -108,6 +117,9 @@ alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
 alias gco="git checkout"
+gcd() {
+  git checkout $(basename $(git symbolic-ref --quiet refs/remotes/origin/HEAD))
+}
 alias gd="git diff"
 alias gl="git pull"
 alias glg="git log"
