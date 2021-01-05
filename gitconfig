@@ -12,3 +12,5 @@
 [init]
 	templatedir = ~/.config/git/templates
 	defaultBranch = main
+[pull]
+	rebase = true
