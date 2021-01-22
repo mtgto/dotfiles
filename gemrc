@@ -1,3 +1,2 @@
-gem: --user-install
 install: --no-document
 update: --no-document
