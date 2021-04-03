@@ -136,6 +136,9 @@ if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 	export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
+if type nvim >/dev/null; then
+  alias v=nvim
+fi
 
 if [ -d "${HOME}/work/chromium/depot_tools" ]; then
   export PATH="${HOME}/work/chromium/depot_tools":$PATH
