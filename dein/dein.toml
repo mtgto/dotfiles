@@ -1,2 +1,9 @@
 [[plugins]]
 repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+if = 'isdirectory("/usr/local/opt/fzf")'
+hook_add = '''
+set rtp+=/usr/local/opt/fzf
+'''

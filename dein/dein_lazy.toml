@@ -1,0 +1,10 @@
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+on_cmd = ['h', 'help']
+hook_add = '''
+  set helplang=ja,en
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
