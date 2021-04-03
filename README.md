@@ -9,7 +9,6 @@ mtgto's dotfiles.
 First, you install [rcm](https://github.com/thoughtbot/rcm) if you didn't.
 
 ```console
-brew tap thoughtbot/formulae
 brew install rcm
 ```
 
@@ -22,24 +21,28 @@ git clone --recursive git@github.com:mtgto/dotfiles.git $HOME/.dotfiles
 Finally, setup with rcm
 
 ```console
+# install
 RCRC=$HOME/.dotfiles/rcrc rcup
+
+# update
+rcup
 ```
 
 # Installation
 
-## Peco
+## fzf
 
-For enhancd (zshrc).
+For enhanced zsh, nvim.
 
 ```console
-brew install peco
+brew install fzf
 ```
 
 ## Powerline
 
 For tmux.
 
-```sh
+```console
 pip3 install psutil
 pip3 install powerline-status
 ```
@@ -48,8 +51,14 @@ pip3 install powerline-status
 
 For tmux.
 
-```
+```console
 brew install jq
+```
+
+## rg
+
+```console
+brew install rg
 ```
 
 ## reattach-to-user-namespace
@@ -64,9 +73,11 @@ brew install reattach-to-user-namespace
 
 ### tmux
 
-- C-[ C-s
+Prefix is `C-t`
+
+- C-t C-s
   - save the session
-- C-[ C-r
+- C-t C-r
   - resurrect the saved session
 
 # Configuration
