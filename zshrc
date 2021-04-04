@@ -133,6 +133,7 @@ alias m="make"
 alias k="kubectl"
 alias bi="bundle install"
 alias be="bundle exec"
+alias dotfiles="cd ${HOME}/.dotfiles"
 
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
