@@ -175,7 +175,7 @@ zinit light zsh-users/zsh-completions
 zinit ice wait"!1" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 
-# プロファイル
+# プロファイルを取るときは ~/.zshenv に "zmodload zsh/zprof && zprof" を書いて↓をコメント外す
 # if (which zprof > /dev/null 2>&1) ;then
 #  zprof | less
 # fi
