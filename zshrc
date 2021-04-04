@@ -69,15 +69,16 @@ if [ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]; then
 fi
 
 # Rubygems
-if type ruby >/dev/null && type gem >/dev/null; then
-  # TODO: it is too slow
+# TODO: it is too slow
+# if type ruby >/dev/null && type gem >/dev/null; then
   # export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"
-fi
+# fi
 
 # Rbenv (lazy load)
 if [ -e "$HOME/.rbenv" ]; then
 	export PATH="$HOME/.rbenv/shims:$PATH"
   function rbenv() {
+    unset -f rbenv
     eval "$(rbenv init - zsh)"
     rbenv $@
   }
@@ -104,6 +105,7 @@ export LESS="-iMR"
 if [ -f "/usr/local/opt/nvm/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
   function nvm() {
+    unset -f nvm
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
     [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     nvm $@
