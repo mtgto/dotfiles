@@ -1,4 +1,5 @@
 # -*- mode: sh; sh-shell: zsh; -*-
+export DOTFILES=$HOME/.dotfiles
 HISTFILE=$HOME/.zhistory
 # メモリ上に保存される件数（検索できる件数）
 HISTSIZE=4096
@@ -63,18 +64,23 @@ fi
 # Ruby
 if [ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]; then
 	export PATH=${HOMEBREW_PREFIX}/opt/ruby/bin:$PATH
-	export PATH=`gem environment gemdir`/bin:$PATH
+  # TODO: it is too slow
+	# export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
 # Rubygems
 if type ruby >/dev/null && type gem >/dev/null; then
-  export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"
+  # TODO: it is too slow
+  # export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"
 fi
 
-# Rbenv
+# Rbenv (lazy load)
 if [ -e "$HOME/.rbenv" ]; then
 	export PATH="$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init - zsh)"
+  function rbenv() {
+    eval "$(rbenv init - zsh)"
+    rbenv $@
+  }
 fi
 
 # Bundler
@@ -98,8 +104,8 @@ export LESS="-iMR"
 if [ -f "/usr/local/opt/nvm/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
   function nvm() {
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     nvm $@
   }
 fi
@@ -133,7 +139,7 @@ alias m="make"
 alias k="kubectl"
 alias bi="bundle install"
 alias be="bundle exec"
-alias dotfiles="cd ${HOME}/.dotfiles"
+alias dotfiles="cd ${DOTFILES}"
 
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -157,7 +163,7 @@ if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
 fi
 
 # zinit
-source "${HOME}/.dotfiles/zinit/bin/zinit.zsh"
+source "${DOTFILES}/zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -175,15 +181,16 @@ zinit light zsh-users/zsh-completions
 zinit ice wait"!1" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 
-# プロファイルを取るときは ~/.zshenv に "zmodload zsh/zprof && zprof" を書いて↓をコメント外す
-# if (which zprof > /dev/null 2>&1) ;then
-#  zprof | less
-# fi
-
 # fzf
 if [[ -d /usr/local/opt/fzf/bin ]]; then
   export PATH="/usr/local/opt/fzf/bin":$PATH
   [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
   source "/usr/local/opt/fzf/shell/key-bindings.zsh"
   export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+fi
+
+# 末尾に置くこと
+# プロファイルを取るときは ~/.zshenv に "zmodload zsh/zprof && zprof" を書く
+if (type zprof >/dev/null) ;then
+ zprof | less
 fi
