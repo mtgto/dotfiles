@@ -68,49 +68,13 @@ if [ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]; then
 	# export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
-# Rubygems
-# TODO: it is too slow
-# if type ruby >/dev/null && type gem >/dev/null; then
-  # export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"
-# fi
-
-# Rbenv (lazy load)
-if [ -e "$HOME/.rbenv" ]; then
-	export PATH="$HOME/.rbenv/shims:$PATH"
-  function rbenv() {
-    unset -f rbenv
-    eval "$(rbenv init - zsh)"
-    rbenv $@
-  }
-fi
-
 # Bundler
 if [ -z $BUNDLE_JOBS ]; then
   export BUNDLE_JOBS=4
 fi
 
-# goenv
-if type goenv >/dev/null; then
-  if [ -z "$GOENV_ROOT" ]; then
-    export GOENV_ROOT="$HOME/.goenv"
-  fi
-  export PATH="$GOENV_ROOT/bin:$PATH"
-  eval "$(goenv init -)"
-fi
-
 # less
 export LESS="-iMR"
-
-# nvm (lazy load)
-if [ -f "/usr/local/opt/nvm/nvm.sh" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  function nvm() {
-    unset -f nvm
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-    nvm $@
-  }
-fi
 
 # next.js
 # https://nextjs.org/telemetry#how-do-i-opt-out
@@ -172,6 +136,8 @@ autoload -Uz _zinit
 zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
+zinit ice wait"!2" atload"source ~/.dotfiles/config/zsh/nvm.sh"
+
 zinit ice as'completion'
 zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
@@ -182,6 +148,29 @@ zinit light zsh-users/zsh-completions
 
 zinit ice wait"!1" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
+
+zinit ice wait"!2" lucid atinit"source $DOTFILES/config/zsh/nvm.sh"
+zinit light zdharma/null
+
+zinit ice wait"!5" lucid atinit"source $DOTFILES/config/zsh/rbenv.sh"
+zinit light zdharma/null
+
+zinit ice wait"!10" lucid atinit"source $DOTFILES/config/zsh/goenv.sh"
+zinit light zdharma/null
+
+zinit ice wait"!20" lucid atinit"source $DOTFILES/config/zsh/jenv.sh"
+zinit light zdharma/null
+
+# Rbenv (lazy load)
+if [ -e "$HOME/.rbenv" ]; then
+	export PATH="$HOME/.rbenv/shims:$PATH"
+  function setup_rbenv() {
+    echo "Setup rbenv"
+    #unset -f rbenv
+    eval "$(rbenv init - zsh)"
+    rbenv $@
+  }
+fi
 
 # fzf
 if [[ -d /usr/local/opt/fzf/bin ]]; then
