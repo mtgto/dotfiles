@@ -157,7 +157,7 @@ if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
 fi
 
 # zinit
-source "${HOME}/.zinit/bin/zinit.zsh"
+source "${HOME}/.dotfiles/zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
