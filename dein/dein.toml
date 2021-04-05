@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'tomasr/molokai'
+merged = '0'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
