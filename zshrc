@@ -106,6 +106,7 @@ alias k="kubectl"
 alias bi="bundle install"
 alias be="bundle exec"
 alias dotfiles="cd ${DOTFILES}"
+alias reset-window-name="tmux setw automatic-rename"
 
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -173,10 +174,10 @@ if [ -e "$HOME/.rbenv" ]; then
 fi
 
 # fzf
-if [[ -d /usr/local/opt/fzf/bin ]]; then
-  export PATH="/usr/local/opt/fzf/bin":$PATH
-  [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+if [[ -d "${HOMEBREW_PREFIX}/opt/fzf/bin" ]]; then
+  export PATH="${HOMEBREW_PREFIX}/opt/fzf/bin":$PATH
+  [[ $- == *i* ]] && source "${HOMEBREW_PREFIX}/opt/fzf/shell/completion.zsh" 2> /dev/null
+  source "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh"
   export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 fi
 
