@@ -4,7 +4,7 @@ merged = '0'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-if = 'isdirectory("/usr/local/opt/fzf")'
+if = 'isdirectory($HOMEBREW_PREFIX . "/opt/fzf")'
 hook_add = '''
-set rtp+=/usr/local/opt/fzf
+set rtp+=$HOMEBREW_PREFIX/opt/fzf
 '''
