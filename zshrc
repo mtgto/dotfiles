@@ -134,10 +134,8 @@ source "${DOTFILES}/zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
+zinit light mafredri/zsh-async
 zinit light sindresorhus/pure
-
-zinit ice wait"!2" atload"source ~/.dotfiles/config/zsh/nvm.sh"
 
 zinit ice as'completion'
 zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
@@ -150,28 +148,10 @@ zinit light zsh-users/zsh-completions
 zinit ice wait"!1" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 
-zinit ice wait"!2" lucid atinit"source $DOTFILES/config/zsh/nvm.sh"
-zinit light zdharma/null
-
-zinit ice wait"!5" lucid atinit"source $DOTFILES/config/zsh/rbenv.sh"
-zinit light zdharma/null
-
-zinit ice wait"!10" lucid atinit"source $DOTFILES/config/zsh/goenv.sh"
-zinit light zdharma/null
-
-zinit ice wait"!20" lucid atinit"source $DOTFILES/config/zsh/jenv.sh"
-zinit light zdharma/null
-
-# Rbenv (lazy load)
-if [ -e "$HOME/.rbenv" ]; then
-	export PATH="$HOME/.rbenv/shims:$PATH"
-  function setup_rbenv() {
-    echo "Setup rbenv"
-    #unset -f rbenv
-    eval "$(rbenv init - zsh)"
-    rbenv $@
-  }
-fi
+source $DOTFILES/config/zsh/nvm.sh
+source $DOTFILES/config/zsh/rbenv.sh
+source $DOTFILES/config/zsh/goenv.sh
+source $DOTFILES/config/zsh/jenv.sh
 
 # fzf
 if [[ -d "${HOMEBREW_PREFIX}/opt/fzf/bin" ]]; then
