@@ -32,25 +32,13 @@ export LANG=ja_JP.UTF-8
 export LC_CTYPE=$LANG
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-if [ -d $HOME/bin ]; then
-  export PATH=$HOME/bin:$PATH
-fi
-
-# Jenv 遅いので遅延ロード
-# https://github.com/shihyuho/zsh-jenv-lazy/blob/master/jenv-lazy.plugin.zsh
-export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
-if type jenv >/dev/null; then
-  export PATH="${JENV_ROOT}/bin:${JENV_ROOT}/shims:${PATH}"
-  function jenv() {
-    unset -f jenv
-    eval "$(command jenv init -)"
-    jenv $@
-  }
+if [ -d "$HOME/bin" ]; then
+  export PATH="$HOME/bin":"$PATH"
 fi
 
 # Golang
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin":"$PATH"
 
 # Homebrew completions
 if [ -d ${HOMEBREW_PREFIX}/share/zsh/site-functions ]; then
@@ -63,9 +51,9 @@ fi
 
 # Ruby
 if [ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]; then
-	export PATH=${HOMEBREW_PREFIX}/opt/ruby/bin:$PATH
+	export PATH=${HOMEBREW_PREFIX}/opt/ruby/bin:"$PATH"
   # TODO: it is too slow
-	# export PATH=`gem environment gemdir`/bin:$PATH
+	# export PATH=`gem environment gemdir`/bin:"$PATH"
 fi
 
 # Bundler
@@ -121,7 +109,7 @@ if type nvim >/dev/null; then
 fi
 
 if [ -d "${HOME}/work/chromium/depot_tools" ]; then
-  export PATH="${HOME}/work/chromium/depot_tools":$PATH
+  export PATH="${HOME}/work/chromium/depot_tools":"$PATH"
 fi
 
 if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
