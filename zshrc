@@ -22,7 +22,7 @@ umask 022
 typeset -gU PATH
 
 if type brew >/dev/null; then
-  export HOMEBREW_PREFIX=$(brew --prefix)
+  : ${HOMEBREW_PREFIX:=$(brew --prefix)}
   # https://docs.brew.sh/Analytics
   export HOMEBREW_NO_ANALYTICS=1
 fi
