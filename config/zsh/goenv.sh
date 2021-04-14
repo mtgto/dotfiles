@@ -5,7 +5,7 @@ if type goenv >/dev/null; then
   fi
   export PATH="$GOENV_ROOT/bin:$PATH"
   function load_goenv() {
-    eval "$(goenv init -)"
+    eval "$(goenv init - --no-rehash)"
   }
   async_start_worker goenv_worker -n
   async_register_callback goenv_worker load_goenv

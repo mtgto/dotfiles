@@ -2,7 +2,7 @@
 if [ -e "$HOME/.rbenv" ]; then
   export PATH="$HOME/.rbenv/shims:$PATH"
   function load_rbenv() {
-    eval "$(rbenv init - zsh)"
+    eval "$(rbenv init - --no-rehash)"
   }
   async_start_worker rbenv_worker -n
   async_register_callback rbenv_worker load_rbenv
