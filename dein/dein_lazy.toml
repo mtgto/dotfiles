@@ -8,3 +8,7 @@ hook_add = '''
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = ['graphql']
