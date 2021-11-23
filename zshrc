@@ -96,16 +96,19 @@ alias be="bundle exec"
 alias dotfiles="cd ${DOTFILES}"
 alias reset-window-name="tmux setw automatic-rename"
 
-if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
-	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-	export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
-fi
 if type nvim >/dev/null; then
   alias v=nvim
   alias vi=nvim
   alias vim=nvim
   export EDITOR=nvim
+elif [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
+	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+	export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
+
+if [ -d "${HOME}/.mint/bin" ]; then
+  export PATH="${HOME}/.mint/bin":"$PATH"
 fi
 
 if [ -d "${HOME}/work/chromium/depot_tools" ]; then
