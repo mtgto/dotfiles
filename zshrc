@@ -134,7 +134,7 @@ zinit ice wait"!0" lucid blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
 
 zinit ice wait"!1" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 source $DOTFILES/config/zsh/nvm.sh
 source $DOTFILES/config/zsh/rbenv.sh
