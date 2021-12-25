@@ -61,6 +61,11 @@ if [ -z $BUNDLE_JOBS ]; then
   export BUNDLE_JOBS=4
 fi
 
+# Rust
+if [ -d "$HOME/.cargo/bin" ]; then
+  export PATH="$HOME/.cargo/bin":"$PATH"
+fi
+
 # less
 export LESS="-iMR"
 
