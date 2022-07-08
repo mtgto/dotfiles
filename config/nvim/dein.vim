@@ -3,7 +3,7 @@ let s:dein_dir = expand('~/.dotfiles/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
   echo "install dein.vim..."
-  execute '!git clone git://github.com/Shougo/dein.vim.git' s:dein_repo_dir
+  execute '!git clone git@github.com:Shougo/dein.vim.git' s:dein_repo_dir
   execute '!touch -m ' . s:dein_dir . '/dein.toml'
   execute '!touch -m ' . s:dein_dir . '/dein_lazy.toml'
 endif
