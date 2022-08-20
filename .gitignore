@@ -1,3 +1,4 @@
 dein/*
 !dein/dein.toml
 !dein/dein_lazy.toml
+config/zsh/local.sh

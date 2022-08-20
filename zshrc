@@ -149,6 +149,9 @@ source $DOTFILES/config/zsh/nvm.sh
 source $DOTFILES/config/zsh/rbenv.sh
 source $DOTFILES/config/zsh/goenv.sh
 source $DOTFILES/config/zsh/jenv.sh
+if [ -f $DOTFILES/config/zsh/local.sh ]; then
+  source $DOTFILES/config/zsh/local.sh
+fi
 
 # fzf
 if [[ -d "${HOMEBREW_PREFIX}/opt/fzf/bin" ]]; then
