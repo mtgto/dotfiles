@@ -101,6 +101,7 @@ alias bi="bundle install"
 alias be="bundle exec"
 alias dotfiles="cd ${DOTFILES}"
 alias reset-window-name="tmux setw automatic-rename"
+alias pn="pnpm"
 
 if type nvim >/dev/null; then
   alias v=nvim
@@ -124,6 +125,10 @@ fi
 if [ -d "${HOME}/graalvm-ce-1.0.0-rc13" ]; then
     export GRAALVM_HOME="${HOME}/graalvm-ce-1.0.0-rc13/Contents/Home"
 #    export PATH=${GRAALVM_HOME}/bin:$PATH
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ssh-add="ssh-add --apple-use-keychain"
 fi
 
 # zinit
