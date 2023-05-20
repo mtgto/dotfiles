@@ -9,4 +9,6 @@ return {
   adjust_window_size_when_changing_font_size = false,
   initial_cols = 150,
   initial_rows = 40,
+  -- https://wezfurlong.org/wezterm/config/lua/config/macos_forward_to_ime_modifier_mask.html
+  macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
 }
