@@ -11,4 +11,6 @@ return {
   initial_rows = 40,
   -- https://wezfurlong.org/wezterm/config/lua/config/macos_forward_to_ime_modifier_mask.html
   macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
+  -- Can open hyperlink cmd + click in mouse enabled tmux
+  bypass_mouse_reporting_modifiers = "SUPER",
 }
