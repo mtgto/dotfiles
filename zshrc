@@ -135,6 +135,11 @@ if [ -d "${HOME}/.rd/bin" ]; then
   export PATH="${HOME}/.rd/bin":"$PATH"
 fi
 
+if [ -d "${HOME}/.volta" ]; then
+  export VOLTA_HOME="${HOME}/.volta"
+  export PATH="${VOLTA_HOME}/bin:":"$PATH"
+fi
+
 # zinit
 source "${DOTFILES}/zinit/bin/zinit.zsh"
 autoload -Uz _zinit
