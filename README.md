@@ -69,6 +69,13 @@ For tmux.
 brew install reattach-to-user-namespace
 ```
 
+## Neovim
+
+```console
+pip3 install pynvim
+gem install neovim
+```
+
 ## Description
 
 ### tmux

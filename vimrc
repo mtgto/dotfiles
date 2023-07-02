@@ -1,6 +1,7 @@
-if v:version >= 800
-  set pythonthreedll=/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.7/Python
-  set rubydll=/usr/local/lib/libruby.dylib
+if has("osx") && !has("nvim") && v:version >= 800
+  let &pythonthreehome=systemlist('python3 -c "import sys;print(sys.prefix)"')[0]
+  let &pythonthreedll=&pythonthreehome . '/Python'
+  set rubydll="~/.rbenv/versions/3.2.2/lib/libruby.3.2.dylib"
 endif
 
 " Note: Skip initialization for vim-tiny or vim-small.
