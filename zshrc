@@ -163,6 +163,7 @@ source $DOTFILES/config/zsh/nvm.sh
 source $DOTFILES/config/zsh/rbenv.sh
 source $DOTFILES/config/zsh/goenv.sh
 source $DOTFILES/config/zsh/jenv.sh
+source $DOTFILES/config/zsh/sdkman.sh
 if [ -f $DOTFILES/config/zsh/local.sh ]; then
   source $DOTFILES/config/zsh/local.sh
 fi
