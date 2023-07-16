@@ -1,0 +1,113 @@
+{
+  "title": "For Vim/Neovim",
+  "rules": [
+    {
+      "description": "WezTermでCtrl-[を英数キーとして扱う",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "japanese_eisuu"
+            },
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.github\\.wez\\.wezterm$"
+              ]
+            }
+          ]
+        },
+        {
+            "type": "basic",
+            "from": {
+              "key_code": "open_bracket",
+              "modifiers": {
+                "mandatory": [
+                  "caps_lock"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "japanese_eisuu"
+              },
+              {
+                "key_code": "escape"
+              }
+            ],
+            "conditions": [
+              {
+                "type": "input_source_if",
+                "input_sources": [
+                  {
+                    "language": "ja"
+                  }
+                ]
+              },
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.github\\.wez\\.wezterm$"
+                ]
+              }
+            ]
+          },
+        {
+            "type": "basic",
+            "from": {
+              "key_code": "escape",
+              "modifiers": {
+                "optional": [ "any" ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "japanese_eisuu"
+              },
+              {
+                "key_code": "escape"
+              }
+            ],
+            "conditions": [
+              {
+                "type": "input_source_if",
+                "input_sources": [
+                  {
+                    "language": "ja"
+                  }
+                ]
+              },
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.github\\.wez\\.wezterm$"
+                ]
+              }
+            ]
+          }
+      ]
+    }
+  ]
+}
