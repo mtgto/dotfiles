@@ -148,9 +148,6 @@ autoload -Uz _zinit
 zinit light mafredri/zsh-async
 zinit light sindresorhus/pure
 
-zinit ice as'completion'
-zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-
 zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait"!0" lucid blockf atpull'zinit creinstall -q .'
