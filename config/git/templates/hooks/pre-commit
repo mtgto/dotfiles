@@ -1,10 +1,10 @@
 #!/bin/sh -eu
 
-if ! git config --get --local user.name > /dev/null; then
+if ! git config --get user.name > /dev/null; then
   echo "error: user.name is not set in git config"
   exit 1
 fi
-if ! git config --get --local user.email > /dev/null; then
+if ! git config --get user.email > /dev/null; then
   echo "error: user.email is not set in git config"
   exit 1
 fi
