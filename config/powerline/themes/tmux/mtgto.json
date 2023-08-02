@@ -13,10 +13,6 @@
     "segments": {
         "right": [
             {
-                "function": "kube.kubernetes",
-                "priority": 40
-            },
-            {
                 "function": "powerline.segments.common.sys.uptime",
                 "priority": 50,
                 "args": {
@@ -28,11 +24,9 @@
                 "priority": 50
             },
             {
-                "function": "powerline.segments.common.time.date",
-                "name": "time",
+                "function": "date.time",
                 "args": {
-                    "format": "%m/%d(%a) %H:%M",
-                    "istime": true
+                    "format": "%m/%d(%a) %H:%M"
                 }
             }
         ],
