@@ -4,9 +4,7 @@ from powerline.theme import requires_filesystem_watcher
 from os.path import expanduser
 
 watcher = None
-context = ''
 namespace = ''
-
 
 @requires_filesystem_watcher
 def kubernetes(pl, create_watcher):
@@ -14,14 +12,12 @@ def kubernetes(pl, create_watcher):
     if watcher is None:
         watcher = create_watcher()
         config = K8sConfig()
-        context = config.current_context
         namespace = config.namespace
     elif watcher("{0}/.kube/config".format(expanduser("~"))):
         config = K8sConfig()
-        context = config.current_context
         namespace = config.namespace
 
     return [{
-        'contents': '{}/{}'.format(context, namespace),
+        'contents': namespace,
         'highlight_groups': ['kubernetes']
     }]
