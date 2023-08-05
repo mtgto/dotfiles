@@ -25,6 +25,11 @@
 ;; 個人設定
 (setq auto-save-default nil)
 
+(leaf doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-molokai t))
+
 ;; <ddskk>
 (leaf ddskk
   :ensure t
