@@ -23,7 +23,18 @@
 ;; </leaf-install-code>
 
 ;; 個人設定
-(setq auto-save-default nil)
+(leaf leaf
+  :custom
+  ((auto-save-default . nil)
+   (tool-bar-mode . nil)
+   (menu-bar-mode . nil)))
+
+(leaf *line-number
+  :if (version<= "27.0.0" emacs-version)
+  :custom
+  (display-line-numbers-width-start . t)
+  :config
+  (global-display-line-numbers-mode t))
 
 (leaf doom-themes
   :ensure t
