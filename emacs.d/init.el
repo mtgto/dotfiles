@@ -25,9 +25,13 @@
 ;; 個人設定
 (leaf leaf
   :custom
-  ((auto-save-default . nil)
+  ((inhibit-splash-screen . t)
+   (initial-scratch-message . nil)
+   (auto-save-default . nil)
    (tool-bar-mode . nil)
-   (menu-bar-mode . nil)))
+   (menu-bar-mode . nil))
+   :config
+   (define-key key-translation-map (kbd "C-h") (kbd "<DEL>")))
 
 (leaf *line-number
   :if (version<= "27.0.0" emacs-version)
