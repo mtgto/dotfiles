@@ -1,0 +1,6 @@
+set mouse = true
+set line-graphics = auto
+
+# ggのかわり
+bind generic g move-first-line
+bind generic G move-last-line
