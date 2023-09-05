@@ -73,6 +73,10 @@ export LESS="-iMR"
 # https://nextjs.org/telemetry#how-do-i-opt-out
 export NEXT_TELEMETRY_DISABLED=1
 
+# prisma
+# https://www.prisma.io/docs/concepts/more/telemetry
+export CHECKPOINT_DISABLE=1
+
 # git
 checkout-pull-request () {
   git fetch origin pull/${1}/head:pr/${1} && git checkout pr/${1}
