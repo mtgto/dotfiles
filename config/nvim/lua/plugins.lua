@@ -12,5 +12,18 @@ return {
       -- load the colorscheme here
       vim.cmd([[colorscheme monokai]])
     end,
-  }
+  },
+  'vim-denops/denops.vim',
+  {
+    'vim-skk/skkeleton',
+    dependencies = {"vim-denops/denops.vim"},
+    config = function()
+      vim.fn["skkeleton#config"]({
+        globalDictionaries = { '~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.L' },
+      })
+    end
+  },
+  {
+    "delphinus/skkeleton_indicator.nvim", opts = {}
+  },
 }

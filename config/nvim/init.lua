@@ -14,4 +14,6 @@ vim.opt.mouse = "a"
 -- キーマップ
 -- ========
 -- C-cをEscの代わりにする
-vim.keymap.set('i', '<C-c>', "<Esc>", {noremap = true})
+vim.keymap.set("i", "<C-c>", "<Esc>", {noremap = true})
+-- skkeleton
+vim.keymap.set({ "i", "c" }, [[<C-j>]], [[<Plug>(skkeleton-enable)]], { noremap = false })
