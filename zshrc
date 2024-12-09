@@ -28,8 +28,10 @@ if type brew >/dev/null; then
 fi
 
 # Env
-export LANG=ja_JP.UTF-8
-export LC_CTYPE=$LANG
+if locale -a | grep 'ja_JP.UTF-8' >/dev/null; then
+  export LANG=ja_JP.UTF-8
+  export LC_CTYPE=$LANG
+fi
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 if [ -d "$HOME/bin" ]; then
@@ -63,6 +65,7 @@ fi
 
 # Rust
 if [ -d "$HOME/.cargo/bin" ]; then
+  export CARGO_HOME="$HOME/.cargo"
   export PATH="$HOME/.cargo/bin":"$PATH"
 fi
 
@@ -108,6 +111,7 @@ alias be="bundle exec"
 alias dotfiles="cd ${DOTFILES}"
 alias reset-window-name="tmux setw automatic-rename"
 alias pn="pnpm"
+alias dcrr="docker compose run --rm"
 
 if type nvim >/dev/null; then
   alias v=nvim
