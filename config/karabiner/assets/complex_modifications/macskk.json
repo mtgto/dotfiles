@@ -1,0 +1,106 @@
+{
+  "title": "macSKK",
+  "rules": [
+    {
+      "description": "macSKK for Ghostty",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "en",
+                "input_source_id": "net.mtgto.inputmethod.macSKK.ascii",
+                "input_mode_id": "net.mtgto.inputmethod.macSKK.ascii"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^net\\.mtgto\\.inputmethod\\.macSKK\\.(hiragana|katakana|hankaku)$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "ja",
+                "input_source_id": "net.mtgto.inputmethod.macSKK.katakana",
+                "input_mode_id": "net.mtgto.inputmethod.macSKK.katakana"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^net\\.mtgto\\.inputmethod\\.macSKK\\.(hiragana|katakana|hankaku)$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "macSKK for Terminal/iTerm2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2",
+                "^com\\.apple\\.Terminal"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^net\\.mtgto\\.inputmethod\\.macSKK\\.(ascii|hiragana|katakana|hankaku|eisu)$"
+                }
+              ]
+            }
+          ],
+          "to":  [{ "key_code": "japanese_kana" }]
+        }
+      ]
+    }
+  ]
+}
