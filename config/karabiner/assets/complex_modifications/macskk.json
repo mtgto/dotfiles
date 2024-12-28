@@ -44,6 +44,37 @@
             {
               "select_input_source": {
                 "language": "ja",
+                "input_source_id": "net.mtgto.inputmethod.macSKK.hiragana",
+                "input_mode_id": "net.mtgto.inputmethod.macSKK.hiragana"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^net\\.mtgto\\.inputmethod\\.macSKK\\.(katakana|hankaku)$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "ja",
                 "input_source_id": "net.mtgto.inputmethod.macSKK.katakana",
                 "input_mode_id": "net.mtgto.inputmethod.macSKK.katakana"
               }
@@ -60,7 +91,7 @@
               "type": "input_source_if",
               "input_sources": [
                 {
-                  "input_source_id": "^net\\.mtgto\\.inputmethod\\.macSKK\\.(hiragana|katakana|hankaku)$"
+                  "input_source_id": "^net\\.mtgto\\.inputmethod\\.macSKK\\.hiragana$"
                 }
               ]
             }

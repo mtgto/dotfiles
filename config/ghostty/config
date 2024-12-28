@@ -1,0 +1,4 @@
+theme = DimmedMonokai
+
+# For masSKK
+keybind = ctrl+j=ignore
