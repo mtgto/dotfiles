@@ -145,6 +145,15 @@ if [ -d "${HOME}/.volta" ]; then
   export PATH="${VOLTA_HOME}/bin:":"$PATH"
 fi
 
+if [ -d "${HOME}/Library/pnpm" ]; then
+  export PNPM_HOME="${HOME}/Library/pnpm"
+  export PATH="${PNPM_HOME}":"$PATH"
+fi
+
+if [ -d "${HOME}/.deno/bin" ]; then
+  export PATH="${HOME}/.deno/bin":"$PATH"
+fi
+
 # zinit
 source "${DOTFILES}/zinit/bin/zinit.zsh"
 autoload -Uz _zinit
