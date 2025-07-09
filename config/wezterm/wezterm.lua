@@ -14,6 +14,7 @@ config.initial_rows = 40
 config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
 -- Can open hyperlink cmd + click in mouse enabled tmux
 config.bypass_mouse_reporting_modifiers = "SUPER"
+config.window_close_confirmation = 'NeverPrompt'
 -- Use Homebrew's zsh
 if wezterm.target_triple == 'aarch64-apple-darwin' then
   local homebrew_prefix = os.getenv("HOMEBREW_PREFIX")
