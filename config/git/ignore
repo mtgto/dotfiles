@@ -2,3 +2,4 @@
 .DS_Store
 *.iml
 .env.development.local
+.kiro/
