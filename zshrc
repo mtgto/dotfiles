@@ -76,6 +76,9 @@ export LESS="-iMR"
 # https://nextjs.org/telemetry#how-do-i-opt-out
 export NEXT_TELEMETRY_DISABLED=1
 
+# Corepack
+export COREPACK_ENABLE_AUTO_PIN=0
+
 # prisma
 # https://www.prisma.io/docs/concepts/more/telemetry
 export CHECKPOINT_DISABLE=1
