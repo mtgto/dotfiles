@@ -47,6 +47,11 @@ if [ -d ${HOMEBREW_PREFIX}/share/zsh/site-functions ]; then
 	fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
 fi
 
+# dotfiles completions
+if [ -d ${HOME}/.config/zsh/completion ]; then
+  fpath=(${HOME}/.config/zsh/completion $fpath)
+fi
+
 if [ -d "${HOMEBREW_PREFIX}/opt/gettext/bin" ]; then
 	export PATH=${HOMEBREW_PREFIX}/opt/gettext/bin:$PATH
 fi
