@@ -102,12 +102,14 @@ alias g=git
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
+alias gca="git commit --amend"
 alias gco="git checkout"
 gcd() {
   git checkout $(basename $(git symbolic-ref --quiet refs/remotes/origin/HEAD))
 }
 alias gd="git diff"
 alias gl="git pull"
+alias glp="git pull --prune"
 alias glg="git log"
 alias gst="git status"
 alias gp="git push"
@@ -123,6 +125,11 @@ alias dotfiles="cd ${DOTFILES}"
 alias reset-window-name="tmux setw automatic-rename"
 alias pn="pnpm"
 alias dcrr="docker compose run --rm"
+
+if type container >/dev/null; then
+  alias c=container
+  alias cl="container list --all"
+fi
 
 if type nvim >/dev/null; then
   alias v=nvim
