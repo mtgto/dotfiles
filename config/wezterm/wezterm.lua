@@ -8,8 +8,8 @@ config.font_size = 14.0
 config.color_scheme = "Monokai Remastered"
 config.hide_tab_bar_if_only_one_tab = true
 config.adjust_window_size_when_changing_font_size = false
-config.initial_cols = 150
-config.initial_rows = 40
+config.initial_cols = 200
+config.initial_rows = 60
 -- https://wezfurlong.org/wezterm/config/lua/config/macos_forward_to_ime_modifier_mask.html
 config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
 -- Can open hyperlink cmd + click in mouse enabled tmux
