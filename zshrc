@@ -172,6 +172,10 @@ if [ -d "${HOME}/.deno/bin" ]; then
   export PATH="${HOME}/.deno/bin":"$PATH"
 fi
 
+if [ -d "${HOME}/.antigravity/antigravity/bin" ]; then
+  export PATH="${HOME}/.antigravity/antigravity/bin":"$PATH"
+fi
+
 # zinit
 source "${DOTFILES}/zinit/bin/zinit.zsh"
 autoload -Uz _zinit
