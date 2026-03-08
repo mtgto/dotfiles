@@ -158,11 +158,6 @@ if [ -d "${HOME}/.rd/bin" ]; then
   export PATH="${HOME}/.rd/bin":"$PATH"
 fi
 
-if [ -d "${HOME}/.volta" ]; then
-  export VOLTA_HOME="${HOME}/.volta"
-  export PATH="${VOLTA_HOME}/bin:":"$PATH"
-fi
-
 if [ -d "${HOME}/Library/pnpm" ]; then
   export PNPM_HOME="${HOME}/Library/pnpm"
   export PATH="${PNPM_HOME}":"$PATH"
