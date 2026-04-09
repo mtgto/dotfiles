@@ -91,6 +91,11 @@ export CHECKPOINT_DISABLE=1
 # Gemini
 export GEMINI_SANDBOX=1
 
+# Coursier
+if [ -d "${HOME}/Library/Application Support/Coursier/bin" ]; then
+	export PATH="${HOME}/Library/Application Support/Coursier/bin":"$PATH"
+fi
+
 # git
 checkout-pull-request () {
   git fetch origin pull/${1}/head:pr/${1} && git checkout pr/${1}
@@ -205,6 +210,9 @@ if [[ -d "${HOMEBREW_PREFIX}/opt/fzf/bin" ]]; then
   source "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh"
   export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 fi
+
+# kiro
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 # 末尾に置くこと
 # プロファイルを取るときは ~/.zshenv に "zmodload zsh/zprof && zprof" を書く

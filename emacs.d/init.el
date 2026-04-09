@@ -53,6 +53,8 @@
      ("C-x j"   . skk-auto-fill-mode))
   :custom
   (skk-japanese-message-and-error . t)
-  (skk-show-japanese-menu . t))
-(setq default-input-method "japanese-skk")
+  (skk-show-japanese-menu . t)
+  (skk-use-azik . t)
+  (skk-sticky-key . ";")
+  (default-input-method . "japanese-skk"))
 ;; </ddskk>

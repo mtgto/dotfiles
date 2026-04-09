@@ -171,6 +171,104 @@
           ]
         }
       ]
+    },
+    {
+      "description": "AquaSKK for Ghostty",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "en",
+                "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Ascii",
+                "input_mode_id": "com.apple.inputmethod.Roman"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(Katakana|HalfWidthKana)$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "ja",
+                "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Hiragana",
+                "input_mode_id": "com.apple.inputmethod.Japanese.Hiragana"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(Katakana|HalfWidthKana)$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "ja",
+                "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Katakana",
+                "input_mode_id": "com.apple.inputmethod.Japanese.Katakana"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.Hiragana$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

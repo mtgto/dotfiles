@@ -7,6 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+    "agent": {
+        "default_profile": "write",
+        "model_parameters": [],
+        "default_model": {
+            "provider": "ollama",
+            "model": "gpt-oss:20b"
+        },
+    },
     "base_keymap": "VSCode",
     "theme": "Andromeda",
     "buffer_font_family": "Cica",

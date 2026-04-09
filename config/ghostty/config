@@ -1,4 +1,16 @@
-theme = DimmedMonokai
+font-family = Cica
+font-size = 14
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+theme = Dimmed Monokai
+macos-titlebar-style = hidden
 
 # For masSKK
 keybind = ctrl+j=ignore
+
+# Quick Terminal
+quick-terminal-position = "top"
+quick-terminal-screen = "main"
+quick-terminal-animation-duration = 0
+keybind = global:cmd+option+g=toggle_quick_terminal
