@@ -14,5 +14,14 @@ function commit-with-claude() {
     --print "/commit-commands:commit $*"
 }
 
+function git-squash() {
+  if [ -z "$1" ]; then
+    echo "Usage: git-squash <from>" >&2
+    return 1
+  fi
+  git reset --soft "$1" && git commit
+}
+
 alias gs=fzf-git-switch
 alias gci=commit-with-claude
+alias gsq=git-squash
