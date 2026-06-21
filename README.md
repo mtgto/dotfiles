@@ -28,6 +28,19 @@ RCRC=$HOME/.dotfiles/rcrc rcup
 rcup
 ```
 
+## Adding existing files
+
+Use `mkrc` to move an existing dotfile into `~/.dotfiles` and create a symlink in its place.
+
+```console
+# Add a file (e.g. ~/.zshrc)
+mkrc ~/.zshrc
+
+# Add a config file under ~/.config (e.g. ~/.config/ghostty/config)
+# Use -S to preserve the directory structure under .dotfiles/config/
+mkrc -S ~/.config/ghostty/config
+```
+
 # Installation
 
 ## fzf
