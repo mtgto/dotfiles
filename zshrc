@@ -25,6 +25,7 @@ if type brew >/dev/null; then
   : ${HOMEBREW_PREFIX:=$(brew --prefix)}
   # https://docs.brew.sh/Analytics
   export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1
 fi
 
 # Env
@@ -219,3 +220,6 @@ fi
 if (type zprof >/dev/null) ;then
  zprof | less
 fi
+
+# Added by Antigravity IDE
+export PATH="/Users/user/.antigravity-ide/antigravity-ide/bin:$PATH"
