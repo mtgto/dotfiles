@@ -131,6 +131,7 @@ alias dotfiles="cd ${DOTFILES}"
 alias reset-window-name="tmux setw automatic-rename"
 alias pn="pnpm"
 alias dcrr="docker compose run --rm"
+alias h="herdr"
 
 if type container >/dev/null; then
   alias c=container
