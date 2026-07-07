@@ -4,7 +4,8 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 theme = Dimmed Monokai
-macos-titlebar-style = hidden
+macos-titlebar-style = transparent
+macos-option-as-alt = true
 
 # For masSKK
 keybind = ctrl+j=ignore
