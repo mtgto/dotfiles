@@ -98,8 +98,34 @@
 							"bundle_identifiers": [
 								"^com\\.microsoft\\.VSCode$",
 								"^dev\\.kiro\\.desktop$",
-								"^com\\.todesktop\\.230313mzl4w4u92$",
-                "^com\\.google\\.antigravity$"
+								"^com\\.todesktop\\.230313mzl4w4u92$"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Ctrl+j to kana key for VSCode",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+					"to":  [{ "key_code": "japanese_kana" }],
+					"conditions": [
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers": [
+								"^com\\.microsoft\\.VSCode$",
+								"^dev\\.kiro\\.desktop$",
+								"^com\\.todesktop\\.230313mzl4w4u92$"
 							]
 						}
 					]
