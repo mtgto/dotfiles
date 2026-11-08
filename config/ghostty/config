@@ -6,9 +6,7 @@ font-feature = -dlig
 theme = Dimmed Monokai
 macos-titlebar-style = transparent
 macos-option-as-alt = true
-
-# For masSKK
-keybind = ctrl+j=ignore
+confirm-close-surface = false
 
 # Quick Terminal
 quick-terminal-position = "top"
